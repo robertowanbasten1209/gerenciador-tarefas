@@ -24,13 +24,18 @@ def listar():
 def excluir(id):
     conn = sqlite3.connect("tarefas.db")
     with conn:
-        conn.execute("DELETE FROM tarefas WHERE id = (?)", (id,))
+        conn.execute("DELETE FROM tarefas WHERE id = ?", (id,))
     conn.close()
 
+def concluido(id):
+    conn = sqlite3.connect("tarefas.db")
+    with conn:
+        conn.execute("UPDATE tarefas SET concluida = 1 WHERE id = ?", (id,))
+    conn.close()
 
 if __name__ == "__main__":
     criar_tabela()
-    excluir(2)
+    concluido(1)
     print(listar())
 
     conn = sqlite3.connect("tarefas.db")
