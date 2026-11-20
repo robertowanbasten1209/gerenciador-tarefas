@@ -66,8 +66,3 @@ def menu():
 if __name__ == "__main__":
     criar_tabela()
     menu()
-
-    conn = sqlite3.connect("tarefas.db")
-    res = conn.execute("SELECT name FROM sqlite_master WHERE name = 'tarefas'")
-    print(res.fetchone())
-    conn.close()
