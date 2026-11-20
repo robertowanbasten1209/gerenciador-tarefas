@@ -21,10 +21,16 @@ def listar():
     conn.close()
     return resultado
 
+def excluir(id):
+    conn = sqlite3.connect("tarefas.db")
+    with conn:
+        conn.execute("DELETE FROM tarefas WHERE id = (?)", (id,))
+    conn.close()
+
 
 if __name__ == "__main__":
     criar_tabela()
-    adicionar("estudar python")
+    excluir(2)
     print(listar())
 
     conn = sqlite3.connect("tarefas.db")
