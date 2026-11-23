@@ -1,5 +1,5 @@
-from flask import Flask, render_template
-from banco import listar
+from flask import Flask, render_template, request, redirect
+from banco import listar, adicionar
 
 
 app = Flask(__name__)
@@ -9,6 +9,11 @@ def inicio():
     resultado = listar()
     return render_template("index.html", tarefas=resultado)
 
+@app.route("/adicionar", methods=["Post"])
+def rota_adcionar():
+    titulo = request.form["titulo"]
+    adicionar(titulo)
+    return redirect("/")
 
 @app.route("/sobre")
 def sobre():
