@@ -20,7 +20,13 @@
                         Concluida
                     {% else %}
                         Pendente
+                        <form action="/concluir/{{id}}" method="post">
+                            <button type="submit">Concluido</button>
+                        </form>
                     {% endif %}
+                    <form action="/excluir/{{id}}" method="Post">
+                        <button type="submit">Remover</button>
+                    </form>
             </li>
         {% endfor %}
     </ul>

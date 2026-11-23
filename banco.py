@@ -21,14 +21,14 @@ def listar():
     conn.close()
     return resultado
 
-def excluir(id):
+def excluir(idt):
     conn = sqlite3.connect("tarefas.db")
     with conn:
-        conn.execute("DELETE FROM tarefas WHERE id = ?", (id,))
+        conn.execute("DELETE FROM tarefas WHERE id = ?", (idt,))
     conn.close()
 
-def concluido(id):
+def concluido(idt):
     conn = sqlite3.connect("tarefas.db")
     with conn:
-        conn.execute("UPDATE tarefas SET concluida = 1 WHERE id = ?", (id,))
+        conn.execute("UPDATE tarefas SET concluida = 1 WHERE id = ?", (idt,))
     conn.close()

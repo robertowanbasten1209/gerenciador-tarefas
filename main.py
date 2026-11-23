@@ -11,20 +11,20 @@ def menu():
             adicionar(titulo)
             print("Titulo adicionado com sucesso!\n")
         elif resposta == 2:
-            for id, titulo, status in listar():
+            for idt, titulo, status in listar():
                 if status == 1:
                     status = "concluido"
                 else:
                     status = "pendente"
-                print(f"{id} - {titulo} x {status}\n")
+                print(f"{idt} - {titulo} x {status}\n")
         elif resposta == 3:
             id = int(input("ID: "))
-            concluido(id)
-            print(f"Tarefa {id} concluida\n")
+            concluido(idt)
+            print(f"Tarefa {idt} concluida\n")
         elif resposta == 4:
             id = int(input("ID: "))
-            excluir(id)
-            print(f"Tarefa {id} excluida com sucesso!\n")
+            excluir(idt)
+            print(f"Tarefa {idt} excluida com sucesso!\n")
         elif resposta == 0:
             break
         else:
