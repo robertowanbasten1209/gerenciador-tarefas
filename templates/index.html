@@ -8,28 +8,47 @@
 </head>
 <body>
     <h1>Gerenciador de Tarefas</h1>
-    <form action="/adicionar" method="post">
-        <input type="text" name="titulo" placeholder="Nome da Tarefa" required>
-        <button type="submit">Adicionar</button>
+    <form class="pesquisa" action="/adicionar" method="post">
+        <input class="campo" type="text" name="titulo" placeholder="Nome da Tarefa" required>
+        <button class="adicionar" type="submit">Adicionar</button>
     </form>
 
-    <ul>
-        {% for id, titulo, concluida in tarefas %}
-            <li>
-                {{id}} - {{titulo}} x 
-                    {% if concluida == 1 %}
-                        Concluida
-                    {% else %}
-                        Pendente
-                        <form action="/concluir/{{id}}" method="post">
-                            <button type="submit">Concluido</button>
-                        </form>
-                    {% endif %}
-                    <form action="/excluir/{{id}}" method="Post">
-                        <button type="submit">Remover</button>
-                    </form>
-            </li>
-        {% endfor %}
-    </ul>
+    <table>
+        <thead>
+           <tr>
+                <th>Nº</th>
+                <th>Tarefa</th>
+                <th>Situação</th>
+                <th>Ações</th>
+           </tr>
+        </thead>
+        <tbody>
+            {%for id,titulo,concluida in tarefas%}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{titulo}}</td>
+                    <td>
+                        {% if concluida == 1 %}
+                            <span class="tconcluida">Concluida</span>
+                        {% else %}
+                            <span class="pendente">Pendente</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if concluida == 0%}
+                            <div class="acoes">
+                                <form action="/concluir/{{id}}" method="post">
+                                    <button class="concluir" type="submit">Concluido</button>
+                                </form>
+                                                        {% endif %}
+                                                        <form action="/excluir/{{id}}" method="Post">
+                                <button class="excluir" type="submit">Remover</button>
+                                                        </form>
+                            </div>
+                    </td>
+                </tr>
+            {% endfor %}    
+        </tbody>
+    </table>
 </body>
 </html>
