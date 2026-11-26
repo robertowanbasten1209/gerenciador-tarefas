@@ -27,8 +27,8 @@ h1{
 }
 
 .adicionar{
-    color: #e2e8f0;
-    border: 1px solid #e2e8f0;
+    color: #a78bfa;
+    border: 1px solid #a78bfa;
 }
 
 
@@ -79,15 +79,15 @@ button{
 }
 
 
-
 table{
     text-align: center;
     background-color: rgba(255, 255, 255, 0.10);
     color: #e2e8f0;
     border-collapse: collapse;
-    width: 700px;
     margin: 0 auto;
     border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
 }
 
 td, th{
@@ -102,4 +102,8 @@ td{
     display: flex;
     gap: 8px;
     justify-content: center;
+}
+
+tr:last-child td{
+    border-bottom: none;
 }
