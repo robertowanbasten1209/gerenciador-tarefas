@@ -32,3 +32,12 @@ def concluido(idt):
     with conn:
         conn.execute("UPDATE tarefas SET concluida = 1 WHERE id = ?", (idt,))
     conn.close()
+
+def ler_inteiro(pergunta):
+    while True:
+        try:
+            numero = int(input(pergunta).strip())
+        except ValueError:
+            print("Digite um valor inteiro!")
+        else:
+            return numero

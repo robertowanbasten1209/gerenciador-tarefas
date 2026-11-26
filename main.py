@@ -1,10 +1,9 @@
-from banco import criar_tabela,adicionar, listar, concluido, excluir
+from banco import criar_tabela,adicionar, listar, concluido, excluir, ler_inteiro
 
 def menu():
     while True:
         print("""MENU DE TAREFAS:\nDigite 1 para adicionar\nDigite 2 para listar\nDigite 3 para concluir\nDigite 4 para excluir\nDigite 0 para sair""")
-
-        resposta = int(input("Sua resposta: "))
+        resposta = ler_inteiro("Sua resposta: ")
 
         if resposta == 1:
             titulo = input("Titulo: ")
@@ -18,11 +17,11 @@ def menu():
                     status = "pendente"
                 print(f"{idt} - {titulo} x {status}\n")
         elif resposta == 3:
-            id = int(input("ID: "))
+            idt = ler_inteiro("ID: ")
             concluido(idt)
             print(f"Tarefa {idt} concluida\n")
         elif resposta == 4:
-            id = int(input("ID: "))
+            idt = ler_inteiro("ID: ")
             excluir(idt)
             print(f"Tarefa {idt} excluida com sucesso!\n")
         elif resposta == 0:
